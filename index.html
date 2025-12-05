@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umarov Baxtiyor — Creative & Web Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;scroll-behavior:smooth;}
+body{background:#f9f9f9;color:#111;line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+.container{width:90%;max-width:1200px;margin:auto;}
+section{padding:80px 0;position:relative;transition:all 0.4s ease;}
+
+/* Floating shapes */
+.shape{position:absolute;border-radius:50%;opacity:0.1;animation:float 25s ease-in-out infinite;}
+.shape1{width:220px;height:220px;background:linear-gradient(135deg,#ff6ec7,#00c6ff);top:5%;left:5%;filter:blur(35px);}
+.shape2{width:180px;height:180px;background:linear-gradient(135deg,#ffde7d,#ff7d7d);top:65%;left:75%;filter:blur(25px);}
+.shape3{width:150px;height:150px;background:linear-gradient(135deg,#7dfcff,#ff7d7d);top:40%;left:50%;filter:blur(20px);}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-30px) rotate(15deg);}}
+
+/* Typography */
+h1,h2,h3,h4{font-family:'Montserrat', sans-serif;}
+h1{font-size:3rem;margin-bottom:1rem; background:linear-gradient(90deg,#ff6ec7,#00c6ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; position:relative; overflow:hidden;}
+h1::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0.4),rgba(255,255,255,0));transform:skewX(-20deg);animation:shine 2s infinite;}
+@keyframes shine{0%{left:-100%;}50%{left:100%;}100%{left:-100%;}}
+h2{font-size:2.5rem;margin-bottom:1rem;color:#ff6ec7;}
+p{color:#555;}
+
+/* Buttons */
+.btn{display:inline-block;padding:12px 28px;margin-top:15px;border-radius:50px;background:linear-gradient(135deg,#00c6ff,#ff6ec7);color:#fff;font-weight:600;transition:0.3s;text-transform:uppercase;letter-spacing:1px;}
+.btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 5px 20px rgba(255,110,199,0.5);}
+
+/* Hero Section */
+.hero{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;position:relative;overflow:hidden; padding: 10%;}
+.hero-text{flex:1;min-width:300px;padding-right:20px;}
+.hero-avatar{flex:1;min-width:300px;text-align:center;}
+.hero-avatar img{width:250px;height:250px;border-radius:50%;border:4px solid #ff6ec7;transition:0.5s;box-shadow:0 15px 40px rgba(255,110,199,0.3);}
+.hero-avatar img:hover{transform:rotate(10deg) scale(1.1);filter:drop-shadow(0 0 15px #ff6ec7);}
+
+/* About Section */
+.about{display:flex;align-items:center;flex-wrap:wrap;gap:40px;}
+.about-text{flex:1;min-width:300px;}
+.about img{flex:1;min-width:300px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.1);transition:0.5s;transform:scaleX(-1) rotateY(180deg);}
+.about img:hover{transform:scale(1.05) rotateY(0deg);}
+
+/* Skills bars */
+.skill{margin:15px 0;}
+.skill-name{font-weight:600;margin-bottom:5px;}
+.skill-bar{width:100%;height:12px;background:rgba(0,0,0,0.1);border-radius:8px;overflow:hidden;}
+.skill-fill{height:100%;width:0%;background:linear-gradient(135deg,#ff6ec7,#00c6ff);border-radius:8px;transition:1.5s ease;}
+
+/* Services Section */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.services .card{padding:25px;border-radius:20px;backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);text-align:center;transition:0.4s;box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+.services .card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(255,110,199,0.3);}
+.services i{margin-bottom:15px;transition:0.3s;}
+.services .card:hover i{transform:scale(1.3) rotate(10deg);}
+
+/* Portfolio Section */
+.portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.portfolio-item{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;transition:0.4s;}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:0.5s;}
+.portfolio-item:hover img{transform:scale(1.1);}
+.portfolio-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,110,199,0.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:0.3s;color:#fff;font-weight:600;font-size:1.2rem;text-align:center;}
+.portfolio-item:hover .portfolio-overlay{opacity:1;}
+.new-badge{position:absolute;top:10px;left:10px;background:#ff6ec7;color:#fff;padding:5px 10px;border-radius:12px;font-size:0.8rem;font-weight:600;}
+
+/* Awards Section */
+.awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.award-card{background:linear-gradient(135deg,#ff6ec7,#00c6ff);color:#fff;padding:25px;border-radius:20px;text-align:center;font-weight:600;transition:0.4s;box-shadow:0 10px 25px rgba(0,198,255,0.3);}
+.award-card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 15px 35px rgba(255,110,199,0.4);}
+
+/* Testimonials Section */
+#testimonials .feedback-list{list-style:none;margin-top:20px;padding:0;}
+.feedback-list li{background:rgba(0,198,255,0.08);padding:18px;border-radius:16px;margin-bottom:12px;box-shadow:0 5px 20px rgba(0,0,0,0.05);transition:0.4s;}
+.feedback-list li:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(255,110,199,0.2);}
+.feedback-input{width:80%;padding:15px;border-radius:12px;border:1px solid #ccc;outline:none;resize:none;}
+.stars span{font-size:1.8rem;cursor:pointer;color:#ccc;transition:0.3s;}
+.stars span.selected, .stars span:hover, .stars span:hover ~ span{color:#ff6ec7;}
+
+/* Contact Section */
+.contact-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:20px;}
+.contact-form input, .contact-form textarea{padding:15px;border-radius:15px;border:none;background:rgba(0,0,0,0.05);color:#111;outline:none;transition:0.3s;}
+.contact-form input:focus, .contact-form textarea:focus{background:rgba(0,0,0,0.12);box-shadow:0 8px 25px rgba(255,110,199,0.4);}
+.contact-form button{padding:15px;border:none;border-radius:50px;background:linear-gradient(135deg,#00c6ff,#ff6ec7);color:#fff;font-weight:600;cursor:pointer;transition:0.3s;}
+.contact-form button:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 30px rgba(255,110,199,0.5);}
+
+/* Footer */
+footer{padding:40px 0;text-align:center;background:#f0f0f0;color:#555;position:relative;overflow:hidden;}
+footer a{margin:0 12px;color:#ff6ec7;transition:0.4s;}
+footer a:hover{color:#00c6ff;transform:scale(1.3);}
+
+/* Responsive */
+@media(max-width:768px){.hero{flex-direction:column;}.hero-text{text-align:center;padding-right:0;}.about{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Umarov Baxtiyor</h1>
+    <h2>Creative & Web Designer</h2>
+    <p>Kreativ dizayn va web dizayn orqali mijozlarni jalb qilaman. UI/UX, branding va web-loyihalar bo‘yicha innovatsion yechimlar.</p>
+    <a href="#contact" class="btn">Bog‘lanish</a>
+    <a href="#portfolio" class="btn" style="margin-left:10px;background:linear-gradient(135deg,#ff6ec7,#ffde7d);">Portfolio</a>
+  </div>
+  <div class="hero-avatar">
+    <img src="IMAGE 2025-12-05 14:41:24.jpg" alt="Umarov Avatar">
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container about">
+    <div class="about-text">
+      <h2>Haqqida</h2>
+      <p>Men Umarov Baxtiyor, kreativ dizayn va web dizayn sohasida tajribaga ega. Loyihalarni san’at va funksionallik uyg‘unligida yaratishga intilaman.</p>
+
+      <div class="skill">
+        <div class="skill-name">UI/UX Dizayn</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Web Dizayn</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Grafik Dizayn</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
+      </div>
+    </div>
+    <img src="IMAGE 2025-12-05 14:41:24.jpg" alt="About Image">
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <div class="container">
+    <h2>Xizmatlar & Ko‘nikmalar</h2>
+    <div class="services">
+      <div class="card"><i class="fa-solid fa-palette fa-2xl" style="color:#ff6ec7;"></i><h3>UI/UX Dizayn</h3><p>Foydalanuvchi do‘stona interfeyslar yaratish.</p></div>
+      <div class="card"><i class="fa-solid fa-laptop-code fa-2xl" style="color:#00c6ff;"></i><h3>Web Dizayn</h3><p>Raqamli loyihalar va sayt dizaynini yaratish.</p></div>
+      <div class="card"><i class="fa-solid fa-pencil-ruler fa-2xl" style="color:#ffde7d;"></i><h3>Grafik Dizayn</h3><p>Print va digital media uchun estetik dizaynlar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+            <div class="award-card">UI/UX Design Competition — 2023</div>
+      <div class="award-card">Web Design Excellence — 2022</div>
+      <div class="award-card">Graphic Design Excellence — 2021</div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards Section -->
+<section id="awards">
+  <div class="container">
+    <h2>Tanlovlar & Yutuqlar</h2>
+    <div class="awards">
+
+          <div class="portfolio">
+      <div class="portfolio-item card">
+        <img src="IMAGE 2025-12-05 14:36:51.jpg" alt="Loyiha 1">
+        <div class="portfolio-overlay"> Odoo Hackathon <br> ERP tizim integratsiyasi. doo modullarini ishlab chiqish.</div>
+        <div class="new-badge">NEW</div>
+      </div>
+      <div class="portfolio-item card">
+        <img src="IMAGE 2025-12-05 14:38:38.jpg" alt="Loyiha 2">
+        <div class="portfolio-overlay">Click Fintech <br> UX & Fintech loyihalar Foydalanuvchi tajribasi va konversiya oshirish.</div>
+      </div>
+      <div class="portfolio-item card">
+        <img src="https://via.placeholder.com/400x300" alt="Loyiha 3">
+        <div class="portfolio-overlay">DevFest <br>Google Developer Community Tech talks, networking va hackathon.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+  <div class="container">
+    <header>
+      <h2>Mijozlar fikri & Baholar</h2>
+      <p>Fikrlaringiz men uchun juda muhim.</p>
+    </header>
+    <div class="rating-box">
+      <h3>Baholash</h3>
+      <div class="stars" id="stars">
+        <span data-star="1">&#9733;</span>
+        <span data-star="2">&#9733;</span>
+        <span data-star="3">&#9733;</span>
+        <span data-star="4">&#9733;</span>
+        <span data-star="5">&#9733;</span>
+      </div>
+      <p id="rating-text">Bahoni tanlang</p>
+    </div>
+    <div id="feedback-form" style="display:none;text-align:center;margin-top:10px">
+      <textarea id="comment" placeholder="Fikringiz..." class="feedback-input"></textarea>
+      <button id="submit-feedback" class="btn" style="margin-top:16px">Yuborish</button>
+    </div>
+    <ul id="comments" class="feedback-list"></ul>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <h2>Bog‘lanish</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Ismingiz" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Xabaringiz" required></textarea>
+      <button type="submit">Yuborish</button>
+    </form>
+    <p style="text-align:center;margin-top:20px;">Yoki <a href="mailto:example@email.com">email orqali</a> bog‘laning yoki ijtimoiy tarmoqlarda kuzating.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Umarov Baxtiyor. Barcha huquqlar himoyalangan.</p>
+  <a href="#"><i class="fab fa-dribbble fa-lg"></i></a>
+  <a href="#"><i class="fab fa-behance fa-lg"></i></a>
+  <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+</footer>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Star rating system
+const stars = document.querySelectorAll('#stars span');
+const ratingText = document.getElementById('rating-text');
+const feedbackForm = document.getElementById('feedback-form');
+let selectedRating = 0;
+stars.forEach(star => {
+  star.addEventListener('mouseover', ()=>{
+    stars.forEach(s=>s.style.color = s.dataset.star <= star.dataset.star ? '#ff6ec7':'#ccc');
+  });
+  star.addEventListener('mouseout', ()=>{
+    stars.forEach(s=>s.style.color = s.dataset.star <= selectedRating ? '#ff6ec7':'#ccc');
+  });
+  star.addEventListener('click', ()=>{
+    selectedRating = star.dataset.star;
+    ratingText.textContent = `Siz ${selectedRating} yulduz tanladingiz`;
+    feedbackForm.style.display = 'block';
+  });
+});
+
+// Feedback submit
+document.getElementById('submit-feedback').addEventListener('click', ()=>{
+  const comment = document.getElementById('comment').value;
+  if(comment.trim()!==''){
+    const li = document.createElement('li');
+    li.textContent = `${comment} (${selectedRating} yulduz)`;
+    document.getElementById('comments').appendChild(li);
+    document.getElementById('comment').value='';
+    alert('Rahmat! Fikringiz qabul qilindi.');
+  }
+});
+</script>
+</body>
+</html>
